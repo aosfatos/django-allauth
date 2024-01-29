@@ -38,9 +38,9 @@ def prepare_django_request(request):
 
 
 def build_sp_config(request, provider_config, org):
-    acs_url = request.build_absolute_uri(reverse("saml_acs", args=[org]))
-    sls_url = request.build_absolute_uri(reverse("saml_sls", args=[org]))
-    metadata_url = request.build_absolute_uri(reverse("saml_metadata", args=[org]))
+    acs_url = request.build_absolute_uri(reverse("saml_acs", args=[org])).replace("http://", "https://")
+    sls_url = request.build_absolute_uri(reverse("saml_sls", args=[org])).replace("http://", "https://")
+    metadata_url = request.build_absolute_uri(reverse("saml_metadata", args=[org])).replace("http://", "https://")
     sp_config = {
         "entityId": metadata_url,
         "assertionConsumerService": {
