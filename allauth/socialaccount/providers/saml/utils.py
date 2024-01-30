@@ -42,7 +42,7 @@ def build_sp_config(request, provider_config, org):
     sls_url = request.build_absolute_uri(reverse("saml_sls", args=[org])).replace("http://", "https://")
     metadata_url = request.build_absolute_uri(reverse("saml_metadata", args=[org])).replace("http://", "https://")
     sp_config = {
-        "entityId": metadata_url,
+        "entityId": "https://live-review.escriba.app/908cd00a-5134-4012-82e8-29ff0f0e4deb",
         "assertionConsumerService": {
             "url": acs_url,
             "binding": OneLogin_Saml2_Constants.BINDING_HTTP_POST,
