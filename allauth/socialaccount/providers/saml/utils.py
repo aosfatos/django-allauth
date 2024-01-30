@@ -27,7 +27,7 @@ def get_app_or_404(request, organization_slug):
 
 def prepare_django_request(request):
     result = {
-        "https": "on" if request.is_secure() else "off",
+        "https": "on",
         "http_host": request.META["HTTP_HOST"],
         "script_name": request.META["PATH_INFO"],
         "get_data": request.GET.copy(),
